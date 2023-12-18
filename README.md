@@ -6,17 +6,12 @@ This project uses a Conda environment named `spotify_env`. Follow the steps belo
 
 1. Create a new Conda environment:
     ```bash
-    conda create -n spotify_env
+    conda create --name spotify_env -c conda-forge python=3.11
     ```
 
 2. Activate the newly created environment:
     ```bash
     conda activate spotify_env
-    ```
-
-3. Install Python 3.11 in the environment:
-    ```bash
-    conda install python3.11
     ```
 
 ## Package Installation
