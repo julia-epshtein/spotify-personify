@@ -1,6 +1,7 @@
 import requests
 import urllib.parse
 from flask import Flask, redirect
+import datetime
 
 app = Flask(__name__)
 app.secret_key = '34f80a3c-8c5a-4b9e-9b0a-9e9a5a4b3c2d'
@@ -81,4 +82,23 @@ def get_playlists():
     
     return jsonify(playlists)
     
+@app.route('/refresh-token')
+def refresh_token():
+    if 'refresh_token' not in session:
+        return redirect('/login')
+        
+    if datetime.now().timestamp() > session['expires_at']:
+        req_body = {
+            'grant_type' : 'refresh_token',
+            'refresh_token' : session['refresh_token'],
+            'client_id' : CLIENT_ID,
+            'client_secret' : CLIENT_SECRET
+        }
     
+        response = requests.post(TOKEN_URL, data=req_body)
+        new_token_info = response.json()
+        
+        session['access_token'] = new_token_info['access_token']
+        session['expires_at'] = datetime.now().timestamp() + new_token_info['expires_in']
+        
+        return redirect('/playlists')
