@@ -59,6 +59,7 @@ Install the necessary packages in the `spotify_env` environment:
     pip3 install scikeras
     ```
 
-
-For Javascript
-1. pip3 install Flask requests
+9. Install Flask For Authentication
+    ```bash
+    pip3 install Flask requests
+    ```
