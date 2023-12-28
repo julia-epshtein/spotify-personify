@@ -56,6 +56,9 @@ Install the necessary packages in the `spotify_env` environment:
 
 8. Install SciKeras from Conda-Forge and using pip:
     ```bash
-    conda install -c conda-forge scikeras
     pip3 install scikeras
     ```
+
+
+For Javascript
+1. pip3 install Flask requests
