@@ -4,7 +4,7 @@ import urllib.parse
 from flask import Flask, redirect, request, jsonify, session
 from datetime import datetime
 
-# Create a Flask web application
+# Create a Flask app
 app = Flask(__name__)
 # Set a secret key for session management
 app.secret_key = '34f80a3c-8c5a-4b9e-9b0a-9e9a5a4b3c2d'
@@ -17,7 +17,7 @@ AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
 
-# Function to generate the Spotify authorization URL
+# Generate the Spotify authorization URL
 def get_auth_url(scope):
     params = {
         'client-id': CLIENT_ID,
@@ -28,11 +28,11 @@ def get_auth_url(scope):
     }
     return f'{AUTH_URL}/?{urllib.parse.urlencode(params)}'
 
-# Function to get headers with access token for API requests
+# Get headers with access token for API requests
 def get_headers():
     return {'Authorization': f"Bearer {session['access_token']}"}
 
-# Function to exchange authorization code for access and refresh tokens
+# Exchange authorization code for access and refresh tokens
 def get_token_info(code):
     req_body = {
         'code': code,
@@ -44,7 +44,7 @@ def get_token_info(code):
     response = requests.post(TOKEN_URL, data=req_body)
     return response.json()
 
-# Function to refresh the access token using the refresh token
+# Refresh the access token using the refresh token
 def refresh_access_token():
     req_body = {
         'grant_type': 'refresh_token',

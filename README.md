@@ -56,10 +56,9 @@ Install the necessary packages in the `spotify_env` environment:
 
 8. Install SciKeras from Conda-Forge and using pip:
     ```bash
-    pip3 install scikeras
     ```
 
 9. Install Flask For Authentication
     ```bash
-    pip3 install Flask requests
+    conda install Flask requests
     ```
