@@ -40,3 +40,26 @@ def login():
     auth_url = f'{AUTH_URL}/?{urllib.parse.urlencode(params)}'
     
     return redirect(auth_url)
+
+@app.route('/callback')
+def callback():
+    if 'error' in request.args:
+        return jsonify({'error' : request.args['error']})
+    
+    if 'code' in request.args:
+        req_body = {
+            'code' : request.args['code'],
+            'grant_type' : 'authorization_code',
+            'redirect_uri' : REDIRECT_URI,
+            'client_id' : CLIENT_ID,
+            'client_secret' : CLIENT_SECRET
+        }
+        
+        response = requests.post(TOKEN_URL, data=req_body)
+        token_info = response.json()
+        
+        session['access_token'] = token_info['access_token'] 
+        session['refresh_token'] = token_info['refresh_token']
+        session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
+        
+        return redirect('/playlists')
