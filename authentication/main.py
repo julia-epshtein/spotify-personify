@@ -14,7 +14,7 @@ app.secret_key = '34f80a3c-8c5a-4b9e-9b0a-9e9a5a4b3c2d'
 # Spotify API credentials and URLs
 CLIENT_ID = 'd62cb14d245c47668fd50431a942c046'
 CLIENT_SECRET = 'fc28483fa9a74b22a90d076120fa3df8'
-REDIRECT_URI = 'https://localhost5000/callback'
+REDIRECT_URI = 'http://localhost5000/callback'
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'

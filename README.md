@@ -58,6 +58,7 @@ Install the necessary packages in the `spotify_env` environment:
     ```bash
     ```
 
-conda install python-dotenv
-
-conda install requests
+9. Install Flask and requests
+    ```bash
+    conda install Flask requests
+    ```
