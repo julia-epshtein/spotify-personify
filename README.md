@@ -58,7 +58,6 @@ Install the necessary packages in the `spotify_env` environment:
     ```bash
     ```
 
-9. Install Flask For Authentication
-    ```bash
-    conda install Flask requests
-    ```
+conda install python-dotenv
+
+conda install requests
