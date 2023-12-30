@@ -63,3 +63,21 @@ Install the necessary packages in the `spotify_env` environment:
     ```bash
     conda install Flask requests
     ```
+
+## For Running main.py in the authentication folder
+
+1. Activate the environment
+    ```bash
+    conda activate spotify_env
+    ```
+
+2. Run the file
+    ```
+    cd authentication
+    python3 main.py
+    ```
+
+3. Go to Output in the VSCode Terminal and copy the Port URL
+    ```
+    http://127.0.0.1:5000
+    ```
