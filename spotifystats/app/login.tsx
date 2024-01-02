@@ -39,7 +39,7 @@ const Login: NextPage = () => {
           <p className="text-white lg:text-[24px] font-normal font-['Inter'] relative pl-32 lg:pr-[750px]">Learn more about how your music taste connects to your personality</p>
           
           <Link href="https://spotify.com">
-          <div className='bg-stone-900 bg-opacity-40 w-[200px] h-[230px] absolute mx-44 my-14 border-white border-solid border-[4px] rounded-[40px] border-opacity-70'> 
+          <div className='bg-black bg-opacity-40 w-[200px] h-[230px] absolute mx-44 my-14 border-white border-solid border-[4px] rounded-[40px] border-opacity-70 hover:scale-110 duration-300'> 
           <h1 className="text-white text-[30px] font-bold font-['Inter'] relative my-10 text-center">Log In</h1>
           <Image
           src='/spotify.svg'
