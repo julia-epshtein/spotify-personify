@@ -81,3 +81,20 @@ Install the necessary packages in the `spotify_env` environment:
     ```
     http://127.0.0.1:5000
     ```
+
+
+## Running the Web Application
+
+1. To run the Next.JS Application, open a terminal in the `spotifystats` folder
+
+
+2. Run the following commands to install all the required dependencies
+   ```
+    npm install
+   ```
+
+3. Once all the dependencies have been successfully installed, run the application using the following command
+
+   ```
+   npm run dev
+   ```
