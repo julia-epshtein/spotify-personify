@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-const API_BASE_URL = 'https://api.spotify.com/v1/'
 
-function Topsongs({accessToken=''}) {
+function Topsongs() {
   const [topSongs, setTopSongs] = useState([]);
 
-  // Function to retrieve top songs from Spotify API
+  // Function to retrieve top songs from server
   const fetchTopSongs = async () => {
     try {
-      // Fetch top songs from Spotify API
-      const response = await fetch("https://api.spotify.com/v1/me/top/tracks", {
-        headers: {
-          Authorization: 'Bearer ' + accessToken
-        }
-      });
+      const response = await fetch("/top-songs");
       if (response.ok) {
         const data = await response.json();
-        setTopSongs(data.items); // Assuming the API response has an 'items' property
+        setTopSongs(data.top_songs.items);
       } else {
         console.error("Error fetching top songs:", response.statusText);
       }
@@ -24,15 +18,19 @@ function Topsongs({accessToken=''}) {
     }
   };
 
+  // Call fetchTopSongs when the component mounts
+  useEffect(() => {
+    fetchTopSongs();
+  }, []);
+
   return (
     <div className="w-screen h-screen flex flex-col bg-white">
       <p className="text-6xl text-black underline underline-offset-8 m-12">
         Your Top Songs
       </p>
+      {/* display the song names */}    
     </div>
   );
 }
-
-//retrieve top songs from spotify api
 
 export default Topsongs;
