@@ -37,7 +37,6 @@ const Login: NextPage = () => {
         <div className=' justify-between'>
           <h1 className="text-white lg:text-[60px] relative font-bold font-['Inter'] px-32 pt-20 pb-[36px]">Welcome to Personify</h1>
           <p className="text-white lg:text-[30px] font-normal font-['Inter'] relative pl-32 lg:pr-[730px]">Learn more about how your music taste connects to your personality</p>
-          
           <Link href="/stats">
           <div className='bg-black bg-opacity-40 w-[200px] h-[230px] absolute mx-44 my-14 border-white border-solid border-[4px] rounded-[40px] border-opacity-70 hover:scale-105 duration-150'> 
           <h1 className="text-white text-[30px] font-bold font-['Inter'] relative my-10 text-center">Log In</h1>
