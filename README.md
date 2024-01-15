@@ -64,6 +64,11 @@ Install the necessary packages in the `spotify_env` environment:
     conda install Flask requests
     ```
 
+10. Install Pytest
+    ```bash
+    conda install pytest
+    ```
+
 ## For Running main.py in the authentication folder
 
 1. Activate the environment
