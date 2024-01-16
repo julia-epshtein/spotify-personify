@@ -131,6 +131,22 @@ def refresh_token():
         print(f"Error in refresh_token: {str(e)}")
         return jsonify({'error': 'An error occurred during token refresh'})
 
+# Route to retrieve and display the user's top songs
+@app.route('/top-songs')
+def get_top_songs():
+    if 'access_token' not in session:
+        return redirect('/login')
+    if datetime.now().timestamp() > session['expires_at']:
+        return redirect('/refresh-token')
+    # Make a request to the Spotify API to get user's top songs
+    headers = get_headers()
+    response = requests.get(API_BASE_URL + 'me/top/tracks', headers=headers)
+    top_songs = response.json()
+
+    # Return the access token along with the top songs
+    return jsonify({'access_token': session['access_token'], 'top_songs': top_songs})
+
+
 # Run the Flask app
 if __name__ == '__main__':
     app.run()
