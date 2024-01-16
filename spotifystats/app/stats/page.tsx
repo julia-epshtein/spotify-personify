@@ -9,7 +9,7 @@ export default function StatsPage() {
   return (
     <div className='flex flex-col snap-mandatory'>
       <Intro />
-      <Topsongs accessToken={""}/>
+      <Topsongs/>
     </div>
 
   )
